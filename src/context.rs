@@ -19,8 +19,6 @@ impl Context {
 
         let (device, ctx, queue) = opencl::util::create_compute_context_prefer(opencl::util::PreferedType::GPUPrefered).unwrap();
 
-        println!("Using OpenCL Device: {}", device.name());
-
         let program = ctx.create_program_from_source(&program_src);
         program.build(&device).ok().expect("Couldn't build program.");
 
